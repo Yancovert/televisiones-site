@@ -1,0 +1,301 @@
+/* Custom Font Definition */
+@font-face {
+    font-family: 'New Athena Unicode';
+    /* Choose a name for your font */
+    src: url('./assets/new_athena_unicode.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'New Athena Unicode', Arial, sans-serif;
+    /* Apply custom font */
+    font-size: 12pt;
+    /* Set base font size to 12pt */
+    background-color: #000;
+    /* Dark background */
+    color: #f0f0f0;
+    /* Light text color */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* Style for the background image placed as an <img> tag */
+.background-section {
+    position: fixed;
+    /* Keep it static in the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* Use flexbox to center the image */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: flex-start;
+    /* Align to the top vertically to show "TeleviSiones" */
+    overflow: hidden;
+    /* Hide any overflow if image is too large */
+    z-index: -1;
+    /* Send behind all other content */
+}
+
+.background-image-element {
+    width: 100%;
+    /* Make the image fill the width of its container */
+    height: 100%;
+    /* Make the image fill the height of its container */
+    object-fit: contain;
+    /* Ensure the entire image is visible, scale down if necessary */
+    object-position: top center;
+    /* Position the image itself at the top center within its box */
+    display: block;
+    /* Remove any extra space below the image */
+}
+
+
+/* Main Content Section - Adjusted margin-top */
+.content-section {
+    padding: 20px;
+    max-width: 900px;
+    /* Max width for content */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    margin-top: 15vh;
+    /* Adjusted margin-top to push content down and clear background image */
+}
+
+/* Top Info Section */
+.top-info {
+    text-align: left;
+    margin-top: 5vh;
+    /* Adjusted for better spacing */
+    margin-left: 5vw;
+    /* Indent from left */
+    line-height: 1.8;
+    color: #e04b4b;
+    /* Reddish color */
+    font-family: 'New Athena Unicode', sans-serif;
+    /* Apply custom font */
+    font-size: 12pt;
+    /* Explicitly set to 12pt */
+}
+
+/* QR Code Section */
+.qr-section {
+    text-align: center;
+    margin: 5vh auto;
+}
+
+.qr-code {
+    width: 250px;
+    /* Adjust size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Credits Section */
+.credits-section {
+    text-align: center;
+    margin-top: 10vh;
+    line-height: 1.6;
+    font-family: 'New Athena Unicode', sans-serif;
+    /* Apply custom font */
+    font-size: 12pt;
+    /* Explicitly set to 12pt */
+}
+
+/* About Us Section */
+.about-us-section {
+    text-align: center;
+    margin-top: 10vh;
+    line-height: 1.5;
+    padding: 0 20px;
+    font-family: 'New Athena Unicode', sans-serif;
+    /* Apply custom font */
+    font-size: 12pt;
+    /* Explicitly set to 12pt */
+}
+
+/* Footer Section */
+.footer-section {
+    text-align: center;
+    margin-top: 15vh;
+    /* Space from content */
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 30px;
+    position: relative;
+    z-index: 1;
+    font-family: 'New Athena Unicode', sans-serif;
+    /* Apply custom font */
+    font-size: 12pt;
+    /* Explicitly set to 12pt */
+}
+
+.design-by {
+    text-align: right;
+}
+
+/* Movable Elements (for JavaScript) */
+.movable-text {
+    will-change: transform;
+    /* Optimize for animation */
+}
+
+.jagged-arrow {
+    position: absolute;
+    /* Position it relative to its container or viewport */
+    width: 100px;
+    /* Example size */
+    height: 300px;
+    /* Example size */
+    background-image: url('./assets/jagged_arrow.jpg');
+    /* Ensure correct extension if it's .jpg */
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -100px;
+    /* Start it off-screen or at a specific point */
+    left: 50%;
+    transform: translateX(-50%);
+    will-change: transform;
+    z-index: 0;
+    /* Behind other content but above background */
+}
+
+
+/* --- Responsive Design --- */
+
+/* For smaller screens (phones) */
+@media screen and (max-width: 768px) {
+    .content-section {
+        margin-top: 10vh;
+        /* Adjust for phone */
+    }
+
+    .top-info {
+        margin-left: 20px;
+    }
+
+    .qr-code {
+        width: 200px;
+    }
+
+    .footer-section {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .design-by {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+/* For larger screens (computers) */
+@media screen and (min-width: 769px) {
+    .top-info {
+        margin-left: 15vw;
+        /* More indent on larger screens */
+    }
+
+    .qr-code {
+        width: 300px;
+    }
+}
+
+/* --- NEW: Loading Screen Styles --- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    /* Black background to match theme */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #e04b4b;
+    /* Reddish text color */
+    font-family: 'New Athena Unicode', sans-serif;
+    font-size: 16pt;
+    z-index: 9999;
+    /* Ensure it's on top of everything */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+    /* Smooth fade out */
+}
+
+#loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #e04b4b;
+    /* Red spinner part */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    /* Spinner animation */
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- NEW: Cursor Trail Styles --- */
+.cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    /* Allows clicks to pass through */
+    width: 10px;
+    height: 10px;
+    background-color: rgba(224, 75, 75, 0.8);
+    /* Semi-transparent red */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the dot on the cursor */
+    opacity: 0;
+    /* Start invisible */
+    animation: fadeOutTrail 1s forwards;
+    /* Animation to fade out and shrink */
+    z-index: 9998;
+    /* Below loading screen but above content */
+}
+
+@keyframes fadeOutTrail {
+    0% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        /* Shrink as it fades */
+    }
+}
